@@ -251,6 +251,23 @@ A list of age recipients can be added to the ``.sops.yaml``:
             age1s3cqcks5genc6ru8chl0hkkd04zmxvczsvdxq99ekffe4gmvjpzsedk23c,
             age1qe5lxzzeppw5k79vxn3872272sgy224g2nzqlzy3uljs84say3yqgvd0sw
 
+
+Alternatively, a list of age recipients can be provided in a key group in the ``.sops.yaml``:
+
+.. code:: yaml
+
+    creation_rules:
+        key_groups:
+            - age:
+                # Recipient A
+                - age1s3cqcks5genc6ru8chl0hkkd04zmxvczsvdxq99ekffe4gmvjpzsedk23c
+                # Recipient B
+                - age1qe5lxzzeppw5k79vxn3872272sgy224g2nzqlzy3uljs84say3yqgvd0sw
+
+The key_groups syntax uses YAML list format instead of block scalar strings. This enables adding 
+comments, which can document the purpose of each key. For more information
+on `key_groups`, see the `Key groups <#key-groups>`_ section.
+
 It is also possible to use ``updatekeys``, when adding or removing age recipients. For example:
 
 .. code:: sh
